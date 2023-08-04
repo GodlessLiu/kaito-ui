@@ -1,7 +1,4 @@
-<script setup lang="ts">
-console.log(1);
-</script>
-
+<script setup lang="ts"></script>
 <template>
   <div>button</div>
 </template>
