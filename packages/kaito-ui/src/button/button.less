@@ -1,0 +1,95 @@
+:root {
+  --button-default-color: #f5f5f5;
+  --button-default-text-color: #555;
+  --button-primary-color: var(--color-primary);
+  --button-danger-color: var(--color-danger);
+  --button-success-color: var(--color-success);
+  --button-warning-color: var(--color-warning);
+  --button-info-color: var(--color-info);
+  --button-disabled-color: var(--color-disabled);
+  --button-disabled-text-color: var(--color-text-disabled);
+  --button-border-radius: 4px;
+  --button-xs-padding: 0 9px;
+  --button-sm-padding: 0 11px;
+  --button-md-padding: 0 15px;
+  --button-lg-padding: 0 22px;
+  --button-round-padding: 6px;
+  --button-xs-height: 20px;
+  --button-sm-height: 28px;
+  --button-md-height: 36px;
+  --button-lg-height: 44px;
+  --button-xs-font-size: var(--font-size-xs);
+  --button-sm-font-size: var(--font-size-sm);
+  --button-md-font-size: var(--font-size-md);
+  --button-lg-font-size: var(--font-size-lg);
+}
+
+.ka_btn {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--button-border-radius);
+  &-block {
+    display: block;
+    width: 100%;
+  }
+  &-lg {
+    font-size: var(--button-lg-font-size);
+    padding: var(--button-lg-padding);
+    height: var(--button-lg-height);
+    color: var(--button-default-text-color);
+  }
+  &-md {
+    font-size: var(--button-md-font-size);
+    padding: var(--button-md-padding);
+    height: var(--button-md-height);
+    color: var(--button-default-text-color);
+  }
+  &-sm {
+    font-size: var(--button-sm-font-size);
+    padding: var(--button-sm-padding);
+    height: var(--button-sm-height);
+    color: var(--button-default-text-color);
+  }
+  &-xs {
+    font-size: var(--button-xs-font-size);
+    padding: var(--button-xs-padding);
+    height: var(--button-xs-height);
+    color: var(--button-default-text-color);
+  }
+  &-primary {
+    color: #fff;
+    background-color: var(--button-primary-color);
+  }
+
+  &-info {
+    color: #fff;
+    background-color: var(--button-info-color);
+  }
+
+  &-success {
+    color: #fff;
+    background-color: var(--button-success-color);
+  }
+
+  &-warning {
+    color: #fff;
+    background-color: var(--button-warning-color);
+  }
+
+  &-danger {
+    color: #fff;
+    background-color: var(--button-danger-color);
+  }
+  &-circle {
+    padding: var(--button-round-padding);
+    border-radius: 50%;
+    height: auto;
+  }
+  &-disabled {
+    color: var(--button-disabled-text-color);
+    background-color: var(--color-disabled);
+  }
+  &:hover {
+    opacity: var(--hover-opacity);
+  }
+}
