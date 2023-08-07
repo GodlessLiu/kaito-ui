@@ -10,10 +10,6 @@
 }
 
 .ka_link {
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  outline: none;
   cursor: pointer;
   font-family: inherit;
   white-space: nowrap;
@@ -45,5 +41,10 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+  &-disabled {
+    cursor: not-allowed;
+    text-decoration: underline !important;
+    color: var(--link-disabled-color);
   }
 }

@@ -41,7 +41,13 @@ const handleClick = (e: MouseEvent) => {
 </script>
 
 <template>
-  <a :href="href" :target="target" :class="classes" @click="handleClick">
+  <a
+    :href="href"
+    :target="target"
+    :class="classes"
+    @click="handleClick"
+    :style="{ color: color }"
+  >
     <slot></slot>
   </a>
 </template>

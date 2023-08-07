@@ -20,7 +20,7 @@ const props = withDefaults(
     type: "primary",
     circle: false,
     disabled: false,
-    block: true,
+    block: false,
     loading: false,
     color: "",
     textColor: "",
