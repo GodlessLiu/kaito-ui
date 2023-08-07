@@ -1,16 +1,19 @@
 <script setup lang="ts">
 import { computed } from "vue";
-
+import { Size, Types } from "./interface";
 defineOptions({
-  name: "ka-button",
+  name: "KaButton",
 });
 const props = withDefaults(
   defineProps<{
-    size?: "lg" | "md" | "sm" | "xs";
-    type?: "primary" | "info" | "success" | "warning" | "danger";
+    size?: Size;
+    type?: Types;
     circle?: boolean;
     disabled?: boolean;
     block?: boolean;
+    loading?: boolean;
+    color?: string;
+    textColor?: string;
   }>(),
   {
     size: "md",
@@ -18,6 +21,9 @@ const props = withDefaults(
     circle: false,
     disabled: false,
     block: true,
+    loading: false,
+    color: "",
+    textColor: "",
   }
 );
 
@@ -42,8 +48,15 @@ const handleClick = () => {
 };
 </script>
 <template>
-  <button :class="classes" @click="handleClick">
-    <slot></slot>
+  <button
+    :class="classes"
+    :style="{ backgroundColor: color, color: textColor }"
+    @click="handleClick"
+  >
+    <span v-if="loading"> loading...</span>
+    <span v-else>
+      <slot></slot>
+    </span>
   </button>
 </template>
 <style lang="less">

@@ -6,7 +6,10 @@ const c = () => {
 
 <template>
   <div>
-    <kaButton size="lg" type="primary" disabled block @click="c">b</kaButton>
+    <ka-button size="lg" disabled type="primary" block loading @click="c"
+      >b</ka-button
+    >
+    <ka-link type="warning" underline="hover">1111</ka-link>
   </div>
 </template>
 

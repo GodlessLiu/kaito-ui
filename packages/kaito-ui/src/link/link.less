@@ -1,0 +1,49 @@
+:root {
+  --link-default-color: #555;
+  --link-primary-color: var(--color-primary);
+  --link-danger-color: var(--color-danger);
+  --link-success-color: var(--color-success);
+  --link-warning-color: var(--color-warning);
+  --link-info-color: var(--color-info);
+  --link-disabled-color: var(--color-text-disabled);
+  --link-font-size: var(--font-size-md);
+}
+
+.ka_link {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: var(--link-font-size);
+  &-primary {
+    color: var(--color-primary);
+  }
+  &-success {
+    color: var(--color-success);
+  }
+  &-danger {
+    color: var(--color-danger);
+  }
+  &-info {
+    color: var(--color-info);
+  }
+  &-warning {
+    color: var(--color-warning);
+  }
+  &-underline-show {
+    text-decoration: underline;
+  }
+  &-underline-none {
+    text-decoration: none;
+  }
+  &-underline-hover {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
