@@ -12,9 +12,11 @@ const activeId = ref<string>("zyh");
   <div>
     <ka-button size="lg" type="primary" loading @click="c">laf</ka-button>
     <ka-link type="warning" underline="hover" disabled>1111</ka-link>
-    <ka-tabs :activeId="activeId">
+    <ka-tabs v-model:activeId="activeId">
       <template #default>
-        <ka-tab-item id="laf" label="laf"> laf </ka-tab-item>
+        <ka-tab-item id="laf" label="laf">
+          大家好，我叫laf，<span style="color: red">hahahaha</span>
+        </ka-tab-item>
         <ka-tab-item id="zyh" label="zyh"> zyh </ka-tab-item>
       </template>
     </ka-tabs>
