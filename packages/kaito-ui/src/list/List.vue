@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
+import { nextTick, onMounted, onUnmounted, ref } from "vue";
 let containerHeight: number;
 let ScrollEvent: any;
 const listEl = ref<HTMLDivElement | null>(null);
@@ -40,11 +40,18 @@ const isReachBottom = (el: HTMLDivElement) => {
   );
 };
 
+// 可以有效的防止多次触发load
+const check = async () => {
+  await nextTick();
+  if (props.loading || props.finished || !isReachBottom(listEl.value!)) return;
+  emit("load");
+};
+
 const addScrollEvent = (el: HTMLDivElement) => {
   ScrollEvent = el.addEventListener("scroll", () => {
     isReachBottomBoolean.value = isReachBottom(listEl.value!);
     if (isReachBottomBoolean.value) {
-      emit("load");
+      check();
     }
   });
 };
