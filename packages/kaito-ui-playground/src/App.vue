@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-
+const finished = ref<boolean>(false);
+const loading = ref<boolean>(false);
 const c = () => {
   // activeId.value = "laf";
   console.log(1);
@@ -8,7 +9,15 @@ const c = () => {
 const activeId = ref<string>("test1");
 const count = ref<number>(50);
 const loadMore = () => {
-  count.value += 50;
+  if (count.value <= 200) {
+    loading.value = true;
+    setTimeout(() => {
+      count.value += 50;
+      loading.value = false;
+    }, 1000);
+  } else {
+    finished.value = true;
+  }
 };
 </script>
 
@@ -36,13 +45,16 @@ const loadMore = () => {
       </template>
     </ka-tabs>
     <p>List 无限滚动</p>
-    <ka-list
-      @load="loadMore"
-      style="height: 199.4px; overflow-y: scroll; border: 1px solid #ccc"
-    >
-      <p v-for="i in count" :key="i" style="height: 39.4px; line-height: 40px">
-        {{ i }}
-      </p>
+    <ka-list @load="loadMore" :finished="finished" :loading="loading">
+      <ka-list-cell>
+        <p
+          v-for="i in count"
+          :key="i"
+          style="height: 39.4px; line-height: 40px"
+        >
+          {{ i }}
+        </p>
+      </ka-list-cell>
     </ka-list>
   </div>
 </template>

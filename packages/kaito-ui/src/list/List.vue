@@ -10,9 +10,15 @@ defineOptions({
 const props = withDefaults(
   defineProps<{
     offset?: number | string;
+    height?: number;
+    finished: boolean;
+    loading: boolean;
   }>(),
   {
     offset: 0,
+    height: 200,
+    finished: false,
+    loading: false,
   }
 );
 const emit = defineEmits<{
@@ -49,10 +55,18 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="ka_list" ref="listEl" style="position: relative">
+  <div class="ka_list" ref="listEl" :style="{ height: `${props.height}px` }">
     <slot />
     <p style="height: 24px; text-align: center">
-      <span v-show="isReachBottomBoolean">到底了</span>
+      <span v-show="!props.loading && !props.finished && isReachBottomBoolean"
+        >到底了</span
+      >
+      <span v-show="props.loading">loading...</span>
+      <span v-show="props.finished">finished</span>
     </p>
   </div>
 </template>
+<style lang="less">
+@import "../styles/common.less";
+@import "./list.less";
+</style>

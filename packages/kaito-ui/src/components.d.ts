@@ -6,6 +6,7 @@ declare module "@vue/runtime-core" {
     KaTabs: typeof components.KaTabs;
     KaTabItem: typeof components.KaTabItem;
     KaList: typeof components.KaList;
+    KaListCell: typeof components.KaListCell;
   }
 }
 export {};
