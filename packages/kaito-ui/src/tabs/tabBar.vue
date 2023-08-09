@@ -25,15 +25,17 @@ const handleClick = (item: Record<string, any>, event: MouseEvent) => {
   indicatorTransition(el);
   emit("update:activeId", item.id);
 };
-onMounted(() => {
-  const firstBar = tabBar.value?.children[0] as HTMLSpanElement;
-  indicatorWidth.value = firstBar.offsetWidth + "px";
-});
+
 const GspanClass = function (item: Record<string, any>) {
   if (item.disable === "" || item.disable === true)
     return ["ka_tabs-tabBar-span", "ka_tabs-tabBar-span-disable"];
   return ["ka_tabs-tabBar-span"];
 };
+
+onMounted(() => {
+  const firstBar = tabBar.value?.children[0] as HTMLSpanElement;
+  indicatorWidth.value = firstBar.offsetWidth + "px";
+});
 </script>
 
 <template>
