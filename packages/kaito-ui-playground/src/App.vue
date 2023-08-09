@@ -10,8 +10,13 @@ const activeId = ref<string>("test1");
 
 <template>
   <div>
+    <p>BUTTON</p>
     <ka-button size="lg" type="primary" loading @click="c">laf</ka-button>
+    <br />
+    <p>LINK</p>
     <ka-link type="warning" underline="hover" disabled>1111</ka-link>
+    <br />
+    <p>TABS</p>
     <ka-tabs v-model:activeId="activeId">
       <template #default>
         <ka-tab-item id="test1" label="test1">

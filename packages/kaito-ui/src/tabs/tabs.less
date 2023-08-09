@@ -1,24 +1,31 @@
 :root {
-  --button-default-padding: 16px;
+  --tabs-default-padding: 16px;
+  --tabs-default-height: 40px;
+  --tabs-default-indicatorColor: red;
+  --tabs-disable-text-color: var(--color-text-disabled);
 }
 
 .ka_tabs {
   &-tabBar {
     position: relative;
-    height: 40px;
-    line-height: 40px;
+    height: var(--tabs-default-height);
+    line-height: var(--tabs-default-height);
     &-span {
       cursor: pointer;
-      padding: var(--button-default-padding);
+      padding: var(--tabs-default-padding);
       &-disable {
         cursor: not-allowed;
+        color: var(--tabs-disable-text-color);
       }
     }
   }
   &-indicator {
     height: 2px;
-    background-color: red;
+    background-color: var(--tabs-default-indicatorColor);
     position: absolute;
     transition-duration: 0.5s;
+  }
+  .tabs-item-wrapper {
+    margin-top: 8px;
   }
 }
