@@ -1,13 +1,18 @@
 :root {
-  --button-default-padding: 12px;
+  --button-default-padding: 16px;
 }
 
 .ka_tabs {
   &-tabBar {
     position: relative;
-    span {
+    height: 40px;
+    line-height: 40px;
+    &-span {
       cursor: pointer;
       padding: var(--button-default-padding);
+      &-disable {
+        cursor: not-allowed;
+      }
     }
   }
   &-indicator {

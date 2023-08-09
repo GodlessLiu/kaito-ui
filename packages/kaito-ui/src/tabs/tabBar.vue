@@ -18,16 +18,22 @@ const indicatorTransition = (el: HTMLSpanElement) => {
   indicatorTransform.value = el.offsetLeft + "px";
 };
 
-const handleClick = (activeId: string | number, event: MouseEvent) => {
+const handleClick = (item: Record<string, any>, event: MouseEvent) => {
   const el = event.currentTarget as HTMLSpanElement;
+  if (item.disable === "" || item.disable === true) return;
   // 底部indicator移动
   indicatorTransition(el);
-  emit("update:activeId", activeId);
+  emit("update:activeId", item.id);
 };
 onMounted(() => {
   const firstBar = tabBar.value?.children[0] as HTMLSpanElement;
   indicatorWidth.value = firstBar.offsetWidth + "px";
 });
+const GspanClass = function (item: Record<string, any>) {
+  if (item.disable === "" || item.disable === true)
+    return ["ka_tabs-tabBar-span", "ka_tabs-tabBar-span-disable"];
+  return ["ka_tabs-tabBar-span"];
+};
 </script>
 
 <template>
@@ -35,16 +41,17 @@ onMounted(() => {
     <span
       v-for="item in items"
       :key="item.id"
-      @click="handleClick(item.id, $event)"
+      :class="GspanClass(item)"
+      @click="handleClick(item, $event)"
     >
       {{ item.label }}
     </span>
-    <div
-      class="ka_tabs-indicator"
-      :style="{
-        width: indicatorWidth,
-        transform: `translateX(${indicatorTransform})`,
-      }"
-    ></div>
   </div>
+  <div
+    class="ka_tabs-indicator"
+    :style="{
+      width: indicatorWidth,
+      transform: `translateX(${indicatorTransform})`,
+    }"
+  ></div>
 </template>

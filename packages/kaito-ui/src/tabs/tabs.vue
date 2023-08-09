@@ -17,6 +17,7 @@ const slotsItems = computed(() => {
     return {
       id: slotProps?.id,
       label: slotProps?.label,
+      disable: slotProps?.disable,
     };
   });
 });

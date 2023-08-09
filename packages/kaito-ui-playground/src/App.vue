@@ -18,6 +18,12 @@ const activeId = ref<string>("test1");
           大家好，我叫test1，<span style="color: red">hahahaha</span>
         </ka-tab-item>
         <ka-tab-item id="test2" label="test2"> test2 </ka-tab-item>
+        <ka-tab-item id="disable1" label="test3" :disable="true">
+          test3 disable
+        </ka-tab-item>
+        <ka-tab-item id="disable2" label="test3" disable>
+          test3 disable
+        </ka-tab-item>
       </template>
     </ka-tabs>
   </div>
