@@ -11,14 +11,18 @@ const props = withDefaults(
   defineProps<{
     offset?: number | string;
     height?: number;
-    finished: boolean;
-    loading: boolean;
+    finished?: boolean;
+    loading?: boolean;
+    loadingText?: string;
+    finishText?: string;
   }>(),
   {
     offset: 0,
     height: 200,
     finished: false,
     loading: false,
+    loadingText: "loading...",
+    finishText: "finished",
   }
 );
 const emit = defineEmits<{
@@ -57,12 +61,9 @@ onUnmounted(() => {
 <template>
   <div class="ka_list" ref="listEl" :style="{ height: `${props.height}px` }">
     <slot />
-    <p style="height: 24px; text-align: center">
-      <span v-show="!props.loading && !props.finished && isReachBottomBoolean"
-        >到底了</span
-      >
-      <span v-show="props.loading">loading...</span>
-      <span v-show="props.finished">finished</span>
+    <p style="text-align: center">
+      <span v-show="props.loading">{{ props.loadingText }}</span>
+      <span v-show="!props.loading && finished">{{ props.finishText }}</span>
     </p>
   </div>
 </template>

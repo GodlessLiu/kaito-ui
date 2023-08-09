@@ -45,7 +45,13 @@ const loadMore = () => {
       </template>
     </ka-tabs>
     <p>List 无限滚动</p>
-    <ka-list @load="loadMore" :finished="finished" :loading="loading">
+    <ka-list
+      @load="loadMore"
+      :finished="finished"
+      :loading="loading"
+      finishText="没有咯"
+      loadingText="加载ing"
+    >
       <ka-list-cell>
         <p
           v-for="i in count"
