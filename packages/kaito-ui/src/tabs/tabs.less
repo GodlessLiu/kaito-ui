@@ -1,0 +1,19 @@
+:root {
+  --button-default-padding: 12px;
+}
+
+.ka_tabs {
+  &-tabBar {
+    position: relative;
+    span {
+      cursor: pointer;
+      padding: var(--button-default-padding);
+    }
+  }
+  &-indicator {
+    height: 2px;
+    background-color: red;
+    position: absolute;
+    transition-duration: 0.5s;
+  }
+}

@@ -20,6 +20,7 @@ const slotsItems = computed(() => {
     };
   });
 });
+
 const emit = defineEmits<{
   (event: "update:activeId", value: number | string): void;
 }>();
@@ -34,7 +35,7 @@ const handleBarClick = (activeId: string | number) => {
 </script>
 
 <template>
-  <div>
+  <div class="ka_tabs">
     <tabBar
       :items="slotsItems"
       :active-id="activeId"

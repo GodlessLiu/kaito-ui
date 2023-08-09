@@ -5,7 +5,7 @@ const c = () => {
   activeId.value = "laf";
   console.log(1);
 };
-const activeId = ref<string>("zyh");
+const activeId = ref<string>("test1");
 </script>
 
 <template>
@@ -14,10 +14,10 @@ const activeId = ref<string>("zyh");
     <ka-link type="warning" underline="hover" disabled>1111</ka-link>
     <ka-tabs v-model:activeId="activeId">
       <template #default>
-        <ka-tab-item id="laf" label="laf">
-          大家好，我叫laf，<span style="color: red">hahahaha</span>
+        <ka-tab-item id="test1" label="test1">
+          大家好，我叫test1，<span style="color: red">hahahaha</span>
         </ka-tab-item>
-        <ka-tab-item id="zyh" label="zyh"> zyh </ka-tab-item>
+        <ka-tab-item id="test2" label="test2"> test2 </ka-tab-item>
       </template>
     </ka-tabs>
   </div>
