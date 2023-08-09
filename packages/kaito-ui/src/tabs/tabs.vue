@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ComputedRef, computed, provide, useSlots } from "vue";
-import tabBar from "./tabBar.vue";
+import tabBar from "./TabBar.vue";
 defineOptions({
   name: "KaTabs",
 });

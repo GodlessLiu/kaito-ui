@@ -44,7 +44,7 @@ onMounted(() => {
       v-for="item in items"
       :key="item.id"
       :class="GspanClass(item)"
-      @click="handleClick(item, $event)"
+      @click.self="handleClick(item, $event)"
     >
       {{ item.label }}
     </span>

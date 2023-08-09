@@ -2,14 +2,18 @@
 import { ref } from "vue";
 
 const c = () => {
-  activeId.value = "laf";
+  // activeId.value = "laf";
   console.log(1);
 };
 const activeId = ref<string>("test1");
+const count = ref<number>(50);
+const loadMore = () => {
+  count.value += 50;
+};
 </script>
 
 <template>
-  <div>
+  <div class="showcase">
     <p>BUTTON</p>
     <ka-button size="lg" type="primary" loading @click="c">laf</ka-button>
     <br />
@@ -31,7 +35,25 @@ const activeId = ref<string>("test1");
         </ka-tab-item>
       </template>
     </ka-tabs>
+    <p>List 无限滚动</p>
+    <ka-list
+      @load="loadMore"
+      style="height: 199.4px; overflow-y: scroll; border: 1px solid #ccc"
+    >
+      <p v-for="i in count" :key="i" style="height: 39.4px; line-height: 40px">
+        {{ i }}
+      </p>
+    </ka-list>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.showcase > p {
+  font-size: 20px;
+  border-bottom: 1px solid #ccc;
+  &::before {
+    content: "#";
+    margin-right: 4px;
+  }
+}
+</style>

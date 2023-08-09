@@ -1,14 +1,16 @@
 import { App } from "vue";
-import KaButton from "./button/button.vue";
-import KaLink from "./link/link.vue";
-import KaTabItem from "./tabs/tabItem.vue";
-import KaTabs from "./tabs/tabs.vue";
+import KaButton from "./button/Button.vue";
+import KaLink from "./link/Link.vue";
+import KaList from "./list/List.vue";
+import KaTabItem from "./tabs/TabItem.vue";
+import KaTabs from "./tabs/Tabs.vue";
 export default {
   install(app: App) {
     app.component(KaButton.name, KaButton);
     app.component(KaLink.name, KaLink);
     app.component(KaTabs.name, KaTabs);
     app.component(KaTabItem.name, KaTabItem);
+    app.component(KaList.name, KaList);
   },
 };
-export { KaButton, KaLink, KaTabItem, KaTabs };
+export { KaButton, KaLink, KaList, KaTabItem, KaTabs };

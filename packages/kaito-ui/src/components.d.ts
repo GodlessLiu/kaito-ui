@@ -3,7 +3,9 @@ declare module "@vue/runtime-core" {
   export interface GlobalComponents {
     kaButton: typeof components.KaButton;
     KaLink: typeof components.KaLink;
-    KaTags: typeof components.KaTabs;
+    KaTabs: typeof components.KaTabs;
+    KaTabItem: typeof components.KaTabItem;
+    KaList: typeof components.KaList;
   }
 }
 export {};
