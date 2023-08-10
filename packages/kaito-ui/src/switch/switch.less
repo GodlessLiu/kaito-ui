@@ -1,0 +1,33 @@
+:root {
+  --switch-default-closeColor: var(--color-danger);
+  --switch-default-openColor: var(--color-primary);
+}
+
+#ka_switch {
+  display: none;
+}
+.toggle-finish {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  height: 25px;
+  width: 50px;
+  border-radius: 4px;
+  background: var(--switch-default-closeColor);
+}
+.cookie-finish {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  width: 50%;
+  background: rgba(230, 230, 230, 0.9);
+  border-radius: 3px;
+}
+input:checked + .toggle-finish {
+  background: var(--switch-default-openColor);
+}
+input:checked + .toggle-finish .cookie-finish {
+  left: auto;
+  right: 2px;
+}

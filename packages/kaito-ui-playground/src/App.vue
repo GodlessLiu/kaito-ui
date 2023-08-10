@@ -19,6 +19,7 @@ const loadMore = () => {
     finished.value = true;
   }
 };
+const switchValue = ref(true);
 </script>
 
 <template>
@@ -62,6 +63,8 @@ const loadMore = () => {
         </p>
       </ka-list-cell>
     </ka-list>
+    <p>switch</p>
+    <ka-switch v-model="switchValue" :disable="false">svg</ka-switch>
   </div>
 </template>
 
