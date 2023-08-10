@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
+import { nextTick, onMounted, ref, watch } from "vue";
 const stepsEl = ref<HTMLDivElement>();
 const props = defineProps<{
   value: number;
@@ -10,21 +10,31 @@ defineOptions({
 const emits = defineEmits<{
   (event: "finish"): void;
 }>();
+
+const renderFinshed = (els: NodeListOf<Element>, n: any) => {
+  for (let index = 0; index <= n.value; index++) {
+    const element = els[index];
+    element.className += " actived";
+  }
+};
+const renderUnFinshed = (els: NodeListOf<Element>, n: any) => {
+  for (let index = n.value + 1; index < els.length; index++) {
+    const element = els[index];
+    element.className = "ka_step";
+  }
+};
 onMounted(() => {
   const els = stepsEl.value!.querySelectorAll(".ka_step");
   watch(
     props,
     async (n: any, _: any) => {
-      for (let index = 0; index <= n.value; index++) {
-        const element = els[index];
-        element.className += " actived";
-      }
-      for (let index = n.value + 1; index < els.length; index++) {
-        const element = els[index];
-        element.className = "ka_step";
-      }
+      renderFinshed(els, n);
+      renderUnFinshed(els, n);
+      // 如果全部完成 emit
       if (n.value + 1 === els.length) {
-        emits("finish");
+        nextTick(() => {
+          emits("finish");
+        });
       }
     },
     {
