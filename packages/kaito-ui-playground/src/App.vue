@@ -3,8 +3,7 @@ import { ref } from "vue";
 const finished = ref<boolean>(false);
 const loading = ref<boolean>(false);
 const c = () => {
-  // activeId.value = "laf";
-  console.log(1);
+  alert("clicked");
 };
 const activeId = ref<string>("test1");
 const count = ref<number>(50);
@@ -20,6 +19,14 @@ const loadMore = () => {
   }
 };
 const switchValue = ref(true);
+
+const v = ref(1);
+const next = () => {
+  v.value = (v.value + 1) % 4;
+};
+const finish = () => {
+  alert("finish");
+};
 </script>
 
 <template>
@@ -65,6 +72,14 @@ const switchValue = ref(true);
     </ka-list>
     <p>switch</p>
     <ka-switch v-model="switchValue" :disable="false">svg</ka-switch>
+    <p>steps</p>
+    <ka-button type="info" @click="next">下一步</ka-button>
+    <ka-steps :value="v" @finish="finish">
+      <ka-step>步骤一</ka-step>
+      <ka-step>步骤二</ka-step>
+      <ka-step>步骤三</ka-step>
+      <ka-step>步骤四</ka-step>
+    </ka-steps>
   </div>
 </template>
 

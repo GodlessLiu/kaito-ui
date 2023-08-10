@@ -8,6 +8,8 @@ declare module "@vue/runtime-core" {
     KaList: typeof components.KaList;
     KaListCell: typeof components.KaListCell;
     KaSwitch: typeof components.KaSwitch;
+    KaStep: typeof components.KaStep;
+    KaSteps: typeof components.KaSteps;
   }
 }
 export {};

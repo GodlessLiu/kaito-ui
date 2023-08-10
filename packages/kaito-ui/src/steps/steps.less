@@ -1,0 +1,35 @@
+.ka_steps {
+  display: flex;
+  flex-direction: row;
+  .ka_step {
+    color: var(--color-primary);
+    width: 100px;
+    font-size: var(--font-size-xs);
+    &:last-child {
+      .ka_step-content-line {
+        flex: 0;
+      }
+    }
+    &-content {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      color: var(--color-primary);
+      &-circle {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+      }
+      &-line {
+        height: 2px;
+        background: #000;
+        flex: 1;
+      }
+    }
+  }
+  .actived {
+    color: var(--color-text-disabled);
+    text-decoration: line-through;
+  }
+}
